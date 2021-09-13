@@ -17,23 +17,64 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
+name: &name 'Darius Weber'
 
-title: Your awesome title
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+locale: 'en-US'
+title: *name
+subtitle: '... telling boring tech stories'
+title_separator: '·'
+description: &description 'Some boring tech stories.'
+url: 'https://darius-weber.de'
+baseurl: ''
+repository: 'manticsic/blog'
+teaser: # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+logo: '/assets/images/88x88.png'
+breadcrumbs: true # true, false (default)
+words_per_minute: 200
 
-# Build settings
-theme: minima
-plugins:
-  - jekyll-feed
+# Comments
+comments:
+  provider: 'false'
 
+# Search Releated
+search: true
+search_full_content: true
+search_provider: lunr
+
+# SEO Related
+google_site_verification:
+bing_site_verification:
+yandex_site_verification:
+naver_site_verification:
+
+# Social Sharing
+og_image: '/assets/images/site-logo.png'
+social:
+  links:
+    - 'https://github.com/ManticSic'
+
+# Site Author
+author:
+  name: *name
+  avatar: '/assets/images/avatar.jpg'
+  bio: 'Just another developer, addicated to all kind of tech and failing until everything works.'
+  location: 'Germany, Northeim'
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/ManticSic"
+
+# Site Footer
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/ManticSic"
+
+# Reading Files
+include:
+  - .htaccess
+  - _pages
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
@@ -53,3 +94,61 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - vendor
+  - .asset-cache
+  - .bundle
+  - .jekyll-assets-cache
+  - .sass-cache
+  - assets/js/plugins
+  - assets/js/_main.js
+  - assets/js/vendor
+  - Capfile
+  - CHANGELOG
+  - config
+  - Gemfile
+  - Gruntfile.js
+  - gulpfile.js
+  - LICENSE
+  - log
+  - node_modules
+  - package.json
+  - Rakefile
+  - README
+  - tmp
+keep_files:
+  - .git
+  - .svn
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+# Timezone
+timezone: Germany/Berlin
+
+
+# Build settings
+theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: 'dark' # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum" "sunrise"
+
+plugins:
+  - jekyll-feed
