@@ -1,0 +1,71 @@
+---
+layout: default
+---
+
+{% capture overlay_img_path %}{{ page.header.overlay_image | relative_url }}{% endcapture %}
+
+<div class="page__hero--overlay"
+     style="background-color: {{ page.header.overlay_color | default: '#5e616c' }};">
+    <div class="wrapper">
+        <h1 id="page-title" class="page__title" itemprop="headline">
+            {{ page.title | default: site.title | markdownify | remove: "<p>" | remove: "</p>" }}
+        </h1>
+
+        {% if page.excerpt %}
+        <p class="page__lead">{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
+        {% endif %}
+
+        {% include page__meta.html %}
+
+        <div>
+            {% if page.badgen.github.stars %}
+            <a href="https://github.com/{{ page.repository }}"><img src="https://badgen.net/badge/icon/GitHub?icon=github&label" /></a>
+            {% endif %}
+
+            {% if page.badgen.github.stars %}
+            <img src="https://badgen.net/github/stars/{{ page.repository }}?icon=github" />
+            {% endif %}
+
+            {% if page.badgen.github.forks %}
+            <a href="https://github.com/{{ page.repository }}/network/members"><img src="https://badgen.net/github/forks/{{ page.repository }}?icon=github" /></a>
+            {% endif %}
+
+            {% if page.badgen.github.watchers %}
+            <img src="https://badgen.net/github/watchers/{{ page.repository }}?icon=github" />
+            {% endif %}
+
+            {% if page.badgen.github.latest_release %}
+            <a href="https://github.com/{{ page.repository }}/releases/latest"><img src="https://badgen.net/github/release/{{ page.repository }}/stable?icon=github" /></a>
+            {% endif %}
+
+            {% if page.badgen.github.open-issues %}
+            <a href="https://github.com/{{ page.repository }}/issues"><img src="https://badgen.net/github/open-issues/{{ page.repository }}?icon=github" /></a>
+            {% endif %}
+
+            {% if page.badgen.github.license %}
+            <a href="https://github.com/{{ page.repository }}/blob/master/LICENSE"><img src="https://badgen.net/github/license/{{ page.repository }}?icon=github" /></a>
+            {% endif %}
+        </div>
+
+        <div>
+            {% if page.badgen.nuget.stable-channel %}
+            <a href="https://www.nuget.org/packages/{{ page.package-name}}/"><img src="https://badgen.net/nuget/v/{{ page.package-name }}?icon=nuget" /></a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div id="main" role="main">
+    <article class="splash" itemscope itemtype="https://schema.org/CreativeWork">
+        {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+        {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+        {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
+        {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
+
+        <div class="page__inner-wrap">
+        <section class="page__content" itemprop="text">
+            {{ content }}
+        </section>
+        </div>
+    </article>
+</div>
