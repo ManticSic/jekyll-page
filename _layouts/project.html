@@ -19,7 +19,8 @@ layout: default
 
         <div>
             {% if page.badgen.github.stars %}
-            <a href="https://github.com/{{ page.repository }}"><img src="https://badgen.net/badge/icon/GitHub?icon=github&label" /></a>
+            <a href="https://github.com/{{ page.repository }}"
+               target="_blank"><img src="https://badgen.net/badge/icon/GitHub?icon=github&label" /></a>
             {% endif %}
 
             {% if page.badgen.github.stars %}
@@ -27,7 +28,8 @@ layout: default
             {% endif %}
 
             {% if page.badgen.github.forks %}
-            <a href="https://github.com/{{ page.repository }}/network/members"><img src="https://badgen.net/github/forks/{{ page.repository }}?icon=github" /></a>
+            <a href="https://github.com/{{ page.repository }}/network/members"
+               target="_blank"><img src="https://badgen.net/github/forks/{{ page.repository }}?icon=github" /></a>
             {% endif %}
 
             {% if page.badgen.github.watchers %}
@@ -35,21 +37,25 @@ layout: default
             {% endif %}
 
             {% if page.badgen.github.latest_release %}
-            <a href="https://github.com/{{ page.repository }}/releases/latest"><img src="https://badgen.net/github/release/{{ page.repository }}/stable?icon=github" /></a>
+            <a href="https://github.com/{{ page.repository }}/releases/latest"
+               target="_blank"><img src="https://badgen.net/github/release/{{ page.repository }}/stable?icon=github" /></a>
             {% endif %}
 
             {% if page.badgen.github.open-issues %}
-            <a href="https://github.com/{{ page.repository }}/issues"><img src="https://badgen.net/github/open-issues/{{ page.repository }}?icon=github" /></a>
+            <a href="https://github.com/{{ page.repository }}/issues"
+               target="_blank"><img src="https://badgen.net/github/open-issues/{{ page.repository }}?icon=github" /></a>
             {% endif %}
 
             {% if page.badgen.github.license %}
-            <a href="https://github.com/{{ page.repository }}/blob/master/LICENSE"><img src="https://badgen.net/github/license/{{ page.repository }}?icon=github" /></a>
+            <a href="https://github.com/{{ page.repository }}/blob/master/LICENSE"
+               target="_blank"><img src="https://badgen.net/github/license/{{ page.repository }}?icon=github" /></a>
             {% endif %}
         </div>
 
         <div>
             {% if page.badgen.nuget.stable-channel %}
-            <a href="https://www.nuget.org/packages/{{ page.package-name}}/"><img src="https://badgen.net/nuget/v/{{ page.package-name }}?icon=nuget" /></a>
+            <a href="https://www.nuget.org/packages/{{ page.package-name}}/"
+               target="_blank"><img src="https://badgen.net/nuget/v/{{ page.package-name }}?icon=nuget" /></a>
             {% endif %}
         </div>
     </div>
