@@ -145,6 +145,11 @@ kramdown:
 # Timezone
 timezone: Europe/Berlin
 
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:path/
 
 # Build settings
 theme: minimal-mistakes-jekyll

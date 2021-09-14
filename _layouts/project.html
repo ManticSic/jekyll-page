@@ -11,57 +11,53 @@ layout: default
             {{ page.title | default: site.title | markdownify | remove: "<p>" | remove: "</p>" }}
         </h1>
 
-        {% if page.excerpt %}
-        <p class="page__lead">{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
-        {% endif %}
-
         {% include page__meta.html %}
-
-        <div>
-            {% if page.badgen.github.stars %}
-            <a href="https://github.com/{{ page.repository }}"
-               target="_blank"><img src="https://badgen.net/badge/icon/GitHub?icon=github&label" /></a>
-            {% endif %}
-
-            {% if page.badgen.github.stars %}
-            <img src="https://badgen.net/github/stars/{{ page.repository }}?icon=github" />
-            {% endif %}
-
-            {% if page.badgen.github.forks %}
-            <a href="https://github.com/{{ page.repository }}/network/members"
-               target="_blank"><img src="https://badgen.net/github/forks/{{ page.repository }}?icon=github" /></a>
-            {% endif %}
-
-            {% if page.badgen.github.watchers %}
-            <img src="https://badgen.net/github/watchers/{{ page.repository }}?icon=github" />
-            {% endif %}
-
-            {% if page.badgen.github.latest_release %}
-            <a href="https://github.com/{{ page.repository }}/releases/latest"
-               target="_blank"><img src="https://badgen.net/github/release/{{ page.repository }}/stable?icon=github" /></a>
-            {% endif %}
-
-            {% if page.badgen.github.open-issues %}
-            <a href="https://github.com/{{ page.repository }}/issues"
-               target="_blank"><img src="https://badgen.net/github/open-issues/{{ page.repository }}?icon=github" /></a>
-            {% endif %}
-
-            {% if page.badgen.github.license %}
-            <a href="https://github.com/{{ page.repository }}/blob/master/LICENSE"
-               target="_blank"><img src="https://badgen.net/github/license/{{ page.repository }}?icon=github" /></a>
-            {% endif %}
-        </div>
-
-        <div>
-            {% if page.badgen.nuget.stable-channel %}
-            <a href="https://www.nuget.org/packages/{{ page.package-name}}/"
-               target="_blank"><img src="https://badgen.net/nuget/v/{{ page.package-name }}?icon=nuget" /></a>
-            {% endif %}
-        </div>
     </div>
 </div>
 
 <div id="main" role="main">
+
+
+    <div class="project__info">
+        <h3>Repository</h3>
+
+        {% if page.excerpt %}
+        <div class="project__description p-note">
+            {{ page.excerpt | markdownify }}
+        </div>
+        {% endif %}
+
+        {% if page.repository.name and page.repository.owner %}
+        <div class="project__shields-wrapper">
+            <ul class="project__shields">
+                <li><a href="https://github.com/{{ page.repository.owner }}/{{ page.repository.name }}/watchers"><img src="https://img.shields.io/github/watchers/{{ page.repository.owner }}/{{ page.repository.name }}.svg?style=social&label=Watchers&maxAge=2592000"></a></li>
+                <li><a href="https://github.com/{{ page.repository.owner }}/{{ page.repository.name }}/stargazers"><img src="https://img.shields.io/github/stars/{{ page.repository.owner }}/{{ page.repository.name }}.svg?style=social&label=Stars&maxAge=2592000"></a></li>
+                <li><a href="https://github.com/{{ page.repository.owner }}/{{ page.repository.name }}/network/members"><img src="https://img.shields.io/github/forks/{{ page.repository.owner }}/{{ page.repository.name }}.svg?style=social&label=Fork&maxAge=2592000"></a></li>
+            </ul>
+        </div>
+        {% endif %}
+
+        <div class="project__urls-wrapper">
+            <ul class="project__urls">
+                {% if page.project-site %}
+                <li><a href="{{ page.project-site }}" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-globe" aria-hidden="true"></i><span class="label">Project page</span></a></li>
+                {% endif %}
+
+                {% if page.repository.name and page.repository.owner %}
+                <li><a href="https://github.com/{{ page.repository.owner }}/{{page.repository.name }}" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">Source code</span></a></li>
+                {% endif %}
+
+                {% if page.repository.license %}
+                <li><i class="fas fa-fw fa-file-contract" aria-hidden="true"></i><span class="label">License: MIT</span></li>
+                {% endif %}
+
+                {% if page.repository.version %}
+                <li><i class="fas fa-fw fa-code-branch" aria-hidden="true"></i><span class="label">Version: {{ page.repository.version }}</span></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+
     <article class="splash" itemscope itemtype="https://schema.org/CreativeWork">
         {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
         {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
