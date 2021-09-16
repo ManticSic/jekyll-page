@@ -2,10 +2,15 @@
 layout: default
 ---
 
+{% if page.repository %}
+<meta name="github_repository" content="{{ page.repository }}">
+{% endif %}
+
 {% capture overlay_img_path %}{{ page.header.overlay_image | relative_url }}{% endcapture %}
 
-<div class="page__hero--overlay"
-     style="background-color: {{ page.header.overlay_color | default: '#5e616c' }};">
+<div class="page__hero{% if page.header.overlay_color or page.header.overlay_image %}--overlay{% endif %}"
+     style="{% if page.header.overlay_color %}background-color: {{ page.header.overlay_color | default: 'transparent' }};{% endif %} {% if overlay_img_path %}background-image: {% if overlay_filter %}{{ overlay_filter }}, {% endif %}url('{{ overlay_img_path }}');{% endif %}"
+>
     <div class="wrapper">
         <h1 id="page-title" class="page__title" itemprop="headline">
             {{ page.title | default: site.title | markdownify | remove: "<p>" | remove: "</p>" }}
@@ -43,16 +48,16 @@ layout: default
                 <li><a href="{{ page.project-site }}" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-globe" aria-hidden="true"></i><span class="label">Project page</span></a></li>
                 {% endif %}
 
-                {% if page.repository.name and page.repository.owner %}
-                <li><a href="https://github.com/{{ page.repository.owner }}/{{page.repository.name }}" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">Source code</span></a></li>
+                {% if page.repository %}
+                <li id="project__repository"><a href="https://github.com/{{ page.repository }}" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">Source code</span></a></li>
                 {% endif %}
 
-                {% if page.repository.license %}
-                <li><i class="fas fa-fw fa-file-contract" aria-hidden="true"></i><span class="label">License: MIT</span></li>
+                {% if page.repository %}
+                <li id="project-license"><i class="fas fa-fw fa-file-contract" aria-hidden="true"></i><span class="label">License: <span>unknown</span></span></li>
                 {% endif %}
 
-                {% if page.repository.version %}
-                <li><i class="fas fa-fw fa-code-branch" aria-hidden="true"></i><span class="label">Version: {{ page.repository.version }}</span></li>
+                {% if page.repository %}
+                <li id="project-version"><i class="fas fa-fw fa-code-branch" aria-hidden="true"></i><span class="label">Version: <span>unknown</span></span></li>
                 {% endif %}
             </ul>
         </div>
