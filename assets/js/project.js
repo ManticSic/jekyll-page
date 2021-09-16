@@ -59,7 +59,6 @@
     function populateRepositoryLicense(data) {
         populateElement('li#project-license > span.label > span', data, function(_data, _element) {
             if (!_data.license) {
-                removeRepositoryLicense();
                 return;
             }
 
@@ -77,7 +76,7 @@
                 });
             })
             .fail(function() {
-                removeRepositoryVersion();
+                // do nothing
             })
         ;
     }
