@@ -32,12 +32,12 @@ layout: default
         </div>
         {% endif %}
 
-        {% if page.repository.name and page.repository.owner %}
+        {% if page.repository and page.repository %}
         <div class="project__shields-wrapper">
             <ul class="project__shields">
-                <li><a href="https://github.com/{{ page.repository.owner }}/{{ page.repository.name }}/watchers"><img src="https://img.shields.io/github/watchers/{{ page.repository.owner }}/{{ page.repository.name }}.svg?style=social&label=Watchers&maxAge=2592000"></a></li>
-                <li><a href="https://github.com/{{ page.repository.owner }}/{{ page.repository.name }}/stargazers"><img src="https://img.shields.io/github/stars/{{ page.repository.owner }}/{{ page.repository.name }}.svg?style=social&label=Stars&maxAge=2592000"></a></li>
-                <li><a href="https://github.com/{{ page.repository.owner }}/{{ page.repository.name }}/network/members"><img src="https://img.shields.io/github/forks/{{ page.repository.owner }}/{{ page.repository.name }}.svg?style=social&label=Fork&maxAge=2592000"></a></li>
+                <li><a href="https://github.com/{{ page.repository }}/watchers"><img src="https://img.shields.io/github/watchers/{{ page.repository }}.svg?style=social&label=Watchers&maxAge=2592000"></a></li>
+                <li><a href="https://github.com/{{ page.repository }}/stargazers"><img src="https://img.shields.io/github/stars/{{ page.repository }}.svg?style=social&label=Stars&maxAge=2592000"></a></li>
+                <li><a href="https://github.com/{{ page.repository }}/network/members"><img src="https://img.shields.io/github/forks/{{ page.repository }}.svg?style=social&label=Fork&maxAge=2592000"></a></li>
             </ul>
         </div>
         {% endif %}
