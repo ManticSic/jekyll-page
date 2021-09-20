@@ -2,8 +2,8 @@
 layout: default
 ---
 
-{% if page.repository %}
-<meta name="github_repository" content="{{ page.repository }}">
+{% if page.repository_type == 'github' and site.data.github_repositories[page.repository] %}
+    {% assign _repository = site.data.github_repositories[page.repository] %}
 {% endif %}
 
 {% capture overlay_img_path %}{{ page.header.overlay_image | relative_url }}{% endcapture %}
@@ -32,7 +32,7 @@ layout: default
         </div>
         {% endif %}
 
-        {% if page.repository and page.repository %}
+        {% if page.repository %}
         <div class="project__shields-wrapper">
             <ul class="project__shields">
                 <li><a href="https://github.com/{{ page.repository }}/watchers"><img src="https://img.shields.io/github/watchers/{{ page.repository }}.svg?style=social&label=Watchers&maxAge=2592000"></a></li>
@@ -45,19 +45,35 @@ layout: default
         <div class="project__urls-wrapper">
             <ul class="project__urls">
                 {% if page.project-site %}
-                <li><a href="{{ page.project-site }}" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-globe" aria-hidden="true"></i><span class="label">Project page</span></a></li>
+                <li>
+                    <a href="{{ page.project-site }}" rel="nofollow noopener noreferrer me">
+                        <i class="fas fa-fw fa-globe" aria-hidden="true"></i>
+                        <span class="label">Project page</span>
+                    </a>
+                </li>
                 {% endif %}
 
-                {% if page.repository %}
-                <li id="project__repository"><a href="https://github.com/{{ page.repository }}" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">Source code</span></a></li>
-                {% endif %}
+                {% if _repository %}
+                    <li id="project__repository">
+                        <a href="https://github.com/{{ page.repository }}" rel="nofollow noopener noreferrer me">
+                            <i class="fab fa-fw fa-github" aria-hidden="true"></i>
+                            <span class="label">Source code</span>
+                        </a>
+                    </li>
 
-                {% if page.repository %}
-                <li id="project-license"><i class="fas fa-fw fa-file-contract" aria-hidden="true"></i><span class="label">License: <span>n/a</span></span></li>
-                {% endif %}
+                    {% if _repository.version %}
+                    <li id="project-version">
+                        <i class="fas fa-fw fa-code-branch" aria-hidden="true"></i>
+                        <span class="label">Version: {{ _repository.version }}</span>
+                    </li>
+                    {% endif %}
 
-                {% if page.repository %}
-                <li id="project-version"><i class="fas fa-fw fa-code-branch" aria-hidden="true"></i><span class="label">Version: <span>n/a</span></span></li>
+                    {% if _repository.license %}
+                    <li id="project-license">
+                        <i class="fas fa-fw fa-file-contract" aria-hidden="true"></i>
+                        <span class="label">License: {{ _repository.license }}</span>
+                    </li>
+                    {% endif %}
                 {% endif %}
             </ul>
         </div>
