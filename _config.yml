@@ -81,6 +81,7 @@ exclude:
   - .sass-cache
   - Gemfile
   - Gemfile.lock
+  - assets/src
 
 encoding: "utf-8"
 
