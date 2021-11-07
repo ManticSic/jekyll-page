@@ -1,0 +1,10 @@
+# main links
+main:
+  - title: "Projects"
+    url: /projects/
+  - title: "Career"
+    url: /career/
+  - title: "About"
+    url: /about/
+  - title: "Terms &amp; Privacy Policy"
+    url: /terms/
