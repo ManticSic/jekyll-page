@@ -18,6 +18,23 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 name: &name 'Darius Weber'
+social_media: &social_media
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/ManticSic"
+    - label: "Stackoverflow"
+      icon: "fab fa-fw fa-stack-overflow"
+      url: "https://stackoverflow.com/users/5663348/d-weber"
+    - label: "Xing"
+      icon: "fab fa-fw fa-xing"
+      url: "https://www.xing.com/profile/Darius_Weber3"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/darius-weber-49bb24215/"
+    - label: "Keybase"
+      icon: "fab fa-fw fa-keybase"
+      url: "http`s://www.linkedin.com/in/darius-weber-49bb24215/"
 
 locale: 'en-US'
 title: *name
@@ -59,17 +76,11 @@ author:
   avatar: '/assets/images/avatar.jpg'
   bio: 'Just another developer, addicated to all kind of tech and failing until everything works.'
   location: 'Germany, Northeim'
-  links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/ManticSic"
+  <<: *social_media
 
 # Site Footer
 footer:
-  links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/ManticSic"
+  <<: *social_media
 
 # Include for processing
 include:
