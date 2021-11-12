@@ -66,6 +66,9 @@ author:
     - label: "Stackoverflow"
       icon: "fab fa-fw fa-stack-overflow"
       url: "https://stackoverflow.com/users/5663348/d-weber"
+    - label: "Xing"
+      icon: "fab fa-fw fa-xing"
+      url: "https://www.xing.com/profile/Darius_Weber3"
 
 # Site Footer
 footer:
