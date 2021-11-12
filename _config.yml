@@ -72,6 +72,9 @@ author:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/darius-weber-49bb24215/"
+    - label: "Keybase"
+      icon: "fab fa-fw fa-keybase"
+      url: "https://www.linkedin.com/in/darius-weber-49bb24215/"
 
 # Site Footer
 footer:
