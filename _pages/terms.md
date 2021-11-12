@@ -11,7 +11,7 @@ Roswithastraße 10
 37154 Northeim  
 Germany  
 
-Mail: webmaster@darius-weber.de
+Mail: <a href="mailto:webmaster@darius-weber.de">webmaster@darius-weber.de</a>
 
 ## Privacy Policy
 
