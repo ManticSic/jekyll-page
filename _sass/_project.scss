@@ -1,12 +1,11 @@
+.page__content.project__ {
+    h2:first-child {
+        margin-top: 0;
+    }
+}
+
 .project__info {
     @include clearfix();
-    // @include breakpoint(max-width $large) {
-    //   /* fix z-index order of follow links */
-    //   position: relative;
-    //   z-index: 10;
-    //   -webkit-transform: translate3d(0, 0, 0);
-    //   transform: translate3d(0, 0, 0);
-    // }
 
     margin-right: 1em;
     margin-bottom: 1em;

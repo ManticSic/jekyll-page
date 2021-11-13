@@ -21,72 +21,16 @@ layout: default
 </div>
 
 <div id="main" role="main">
+    {% include sidebar.html %}
 
-
-    <div class="project__info">
-        <h3>Info</h3>
-
-        {% if page.excerpt %}
-        <div class="project__description p-note">
-            {{ page.excerpt | markdownify }}
-        </div>
-        {% endif %}
-
-        {% if page.repository %}
-        <div class="project__shields-wrapper">
-            <ul class="project__shields">
-                <li><a href="https://github.com/{{ page.repository }}/watchers"><img src="https://img.shields.io/github/watchers/{{ page.repository }}.svg?style=social&label=Watchers&maxAge=2592000"></a></li>
-                <li><a href="https://github.com/{{ page.repository }}/stargazers"><img src="https://img.shields.io/github/stars/{{ page.repository }}.svg?style=social&label=Stars&maxAge=2592000"></a></li>
-                <li><a href="https://github.com/{{ page.repository }}/network/members"><img src="https://img.shields.io/github/forks/{{ page.repository }}.svg?style=social&label=Fork&maxAge=2592000"></a></li>
-            </ul>
-        </div>
-        {% endif %}
-
-        <div class="project__urls-wrapper">
-            <ul class="project__urls">
-                {% if page.project-site %}
-                    <li>
-                        <i class="fas fa-fw fa-globe" aria-hidden="true"></i>
-                        <a href="{{ page.project-site }}" rel="nofollow noopener noreferrer me">
-                            <span class="label">Project page</span>
-                        </a>
-                    </li>
-                {% endif %}
-
-                {% if _repository %}
-                    <li id="project__repository">
-                        <i class="fab fa-fw fa-github" aria-hidden="true"></i>
-                        <a href="https://github.com/{{ page.repository }}" rel="nofollow noopener noreferrer me">
-                            <span class="label">Source code</span>
-                        </a>
-                    </li>
-
-                    {% if _repository.version %}
-                    <li id="project-version">
-                        <i class="fas fa-fw fa-code-branch" aria-hidden="true"></i>
-                        <span class="label">Version: {{ _repository.version }}</span>
-                    </li>
-                    {% endif %}
-
-                    {% if _repository.license %}
-                    <li id="project-license">
-                        <i class="fas fa-fw fa-file-contract" aria-hidden="true"></i>
-                        <span class="label">License: {{ _repository.license }}</span>
-                    </li>
-                    {% endif %}
-                {% endif %}
-            </ul>
-        </div>
-    </div>
-
-    <article class="splash" itemscope itemtype="https://schema.org/CreativeWork">
+    <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
         {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
         {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
         {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
         {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
 
         <div class="page__inner-wrap">
-        <section class="page__content" itemprop="text">
+        <section class="page__content project__" itemprop="text">
             {{ content }}
         </section>
         </div>
