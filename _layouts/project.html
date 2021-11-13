@@ -45,18 +45,18 @@ layout: default
         <div class="project__urls-wrapper">
             <ul class="project__urls">
                 {% if page.project-site %}
-                <li>
-                    <a href="{{ page.project-site }}" rel="nofollow noopener noreferrer me">
+                    <li>
                         <i class="fas fa-fw fa-globe" aria-hidden="true"></i>
-                        <span class="label">Project page</span>
-                    </a>
-                </li>
+                        <a href="{{ page.project-site }}" rel="nofollow noopener noreferrer me">
+                            <span class="label">Project page</span>
+                        </a>
+                    </li>
                 {% endif %}
 
                 {% if _repository %}
                     <li id="project__repository">
+                        <i class="fab fa-fw fa-github" aria-hidden="true"></i>
                         <a href="https://github.com/{{ page.repository }}" rel="nofollow noopener noreferrer me">
-                            <i class="fab fa-fw fa-github" aria-hidden="true"></i>
                             <span class="label">Source code</span>
                         </a>
                     </li>

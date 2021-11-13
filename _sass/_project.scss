@@ -118,11 +118,6 @@
             }
         }
 
-        ul {
-            padding: 10px;
-            list-style-type: none;
-        }
-
         li {
             white-space: nowrap;
             display: inline-block;
@@ -135,8 +130,6 @@
         }
 
         a {
-            display: block;
-            //margin-bottom: 5px;
             padding-right: 5px;
             padding-top: 2px;
             padding-bottom: 2px;
@@ -173,83 +166,4 @@
             }
         }
     }
-
-    //.project__urls {
-    //    list-style-type: none;
-    //    display: block;
-    //    margin: 0;
-    //    padding: 0;
-    //
-    //    @include breakpoint($large) {
-    //        display: block;
-    //        position: relative;
-    //        margin: 0;
-    //        padding: 0;
-    //        background: transparent;
-    //        box-shadow: none;
-    //    }
-    //
-    //    &:before {
-    //        display: block;
-    //        content: "";
-    //        position: absolute;
-    //        top: -11px;
-    //        left: calc(50% - 10px);
-    //        width: 0;
-    //        border-style: solid;
-    //        border-width: 0 10px 10px;
-    //        border-color: $border-color transparent;
-    //        z-index: 0;
-    //
-    //        @include breakpoint($large) {
-    //            display: none;
-    //        }
-    //    }
-    //
-    //    &:after {
-    //        display: block;
-    //        content: "";
-    //        position: absolute;
-    //        top: -10px;
-    //        left: calc(50% - 10px);
-    //        width: 0;
-    //        border-style: solid;
-    //        border-width: 0 10px 10px;
-    //        border-color: $background-color transparent;
-    //        z-index: 1;
-    //
-    //        @include breakpoint($large) {
-    //            display: none;
-    //        }
-    //    }
-    //
-    //    ul {
-    //        padding: 10px;
-    //        list-style-type: none;
-    //    }
-    //
-    //    li {
-    //        white-space: nowrap;
-    //        display: inline-block;
-    //
-    //        @include breakpoint($large) {
-    //            display: block;
-    //        }
-    //    }
-    //
-    //    a {
-    //        display: block;
-    //        margin-bottom: 5px;
-    //        padding-right: 5px;
-    //        padding-top: 2px;
-    //        padding-bottom: 2px;
-    //        color: inherit;
-    //        font-size: $type-size-5;
-    //        text-decoration: none;
-    //
-    //        &:hover {
-    //            text-decoration: underline;
-    //        }
-    //    }
-    //}
 }
