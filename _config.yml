@@ -138,6 +138,9 @@ defaults:
       type: projects
     values:
       layout: project
+      project_info: true
+      header:
+        overlay_image: /assets/images/project-banner.jpg
 
 # Build settings
 theme: minimal-mistakes-jekyll
