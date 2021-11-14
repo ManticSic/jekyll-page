@@ -1,0 +1,67 @@
+# Workflow to build and publish to gh-pages
+
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  # setup build environment and build the project
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout source
+      - name: check-out source
+        uses: actions/checkout@v2
+
+      # install ruby, bundler and jekyll
+      - name: setup environemnt
+        run: |
+          apt update
+          apt-get install -y ruby-full build-essential zlib1g-dev
+          gem install jekyll bundler
+
+      # install page dependencies
+      - name: install dependencies
+        run: bundle install
+
+      # build the page
+      - name: build
+        run: bundle exec jekyll build
+
+      # upload artifact to reuse in other jobs
+      - name: upload artifact
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: site
+          path: ${{ github.workspace }}/_site
+
+  # publish to gh-pages
+  gh-pages:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    steps:
+      # check out the project to have reference for uploading to gh-pages
+      - name: Check-out source
+        uses: actions/checkout@v2
+
+      # download artifact
+      - name: download site
+        uses: actions/download-artifact@v2.0.10
+        with:
+          name: site
+          path: ${{ github.workspace }}/publish
+
+      # clear branch, excluded CNAME file, and upload downloaded artifact
+      - name: Publish to gh-pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: ${{ github.workspace }}/publish
+          clean: true
+          clean-exclude: |
+            CNAME
