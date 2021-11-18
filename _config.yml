@@ -37,7 +37,7 @@ social_media: &social_media
       url: "https://twitter.com/_darius_weber_"
     - label: "Keybase"
       icon: "fab fa-fw fa-keybase"
-      url: "http`s://www.linkedin.com/in/darius-weber-49bb24215/"
+      url: "https://www.linkedin.com/in/darius-weber-49bb24215/"
 
 locale: 'en-US'
 title: *name
