@@ -44,7 +44,7 @@ title: *name
 subtitle: '... telling boring tech stories'
 title_separator: '·'
 description: &description 'Some boring tech stories.'
-url: 'https://darius-weber.de'
+url: 'https://www.darius-weber.de'
 baseurl: ''
 repository: 'manticsic/blog'
 teaser: # path of fallback teaser image, e.g. "/assets/images/500x300.png"
