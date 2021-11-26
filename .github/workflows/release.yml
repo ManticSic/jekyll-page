@@ -20,9 +20,9 @@ jobs:
       # install ruby, bundler and jekyll
       - name: setup environemnt
         run: |
-          apt update
-          apt-get install -y ruby-full build-essential zlib1g-dev
-          gem install jekyll bundler
+          sudo apt update
+          sudo apt-get install -y ruby-full build-essential zlib1g-dev
+          sudo gem install jekyll bundler
 
       # install page dependencies
       - name: install dependencies
